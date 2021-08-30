@@ -87,9 +87,7 @@
 
       document.getElementById("time").innerHTML =
         h + ":" + m + ":" + s + " " + sesson;
-        // document.getElementById("time").style = "color :red";
-        // document.getElementById("twelve").style= "background-color:red";
-
+       
 
       x = setTimeout(tl_hour, 1000);
       clearTimeout(y);
@@ -113,8 +111,7 @@
         s = "0" + s;
       }
       document.getElementById("time").innerHTML = h + ":" + m + ":" + s;
-      // document.getElementById("time").style= "color:black";
-
+     
       y = setTimeout(tf_hour, 1000);
       clearTimeout(x);
     }
