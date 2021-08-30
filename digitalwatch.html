@@ -1,0 +1,124 @@
+<!-- Digital watch created by dipak prajapati on 29 aug 2021  -->
+<!DOCTYPE html>
+<head>
+  <title>DIGITAL WATCH</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    #main {
+      width: 300px;
+      height: 125px;
+      border: 2px solid black;
+      border-radius: 5px;
+      margin: auto;
+      margin-top: 2rem;
+      font-size: 3rem;
+      font-style: italic;
+      text-align: center;
+      background: radial-gradient(#18c443, #fafafa);
+      outline: 1px solid #ee6363;
+      outline-offset: 5px;
+    }
+    p {
+      text-align: center;
+      margin-top: 10px;
+      color: brown;
+    }
+    .switch {
+      width: 100px;
+      height: auto;
+
+      border-radius: 5px;
+      display: inline-block;
+      margin: auto;
+      font-size: x-large;
+      background: #18c443;
+    }
+    p{
+      color: #fafafa;
+    }
+    p:hover{
+      color: #ee6363;
+    }
+  </style>
+</head>
+<body>
+  <div id="main">
+    <div id="time"></div>
+    <!--for time display -->
+    <!-- for 24 h formate -->
+    <div id="button">
+      <button class="switch" id="Twentyfour" onclick="tf_hour()">
+        24 hour
+      </button>
+      <!-- for 12 h formate  -->
+      <button class="switch" id="Twelve" onclick="tl_hour()">12 hour</button>
+    </div>
+  </div>
+  <p>Digital Clock By Dipak 29aug21</p>
+
+  <script>
+    var x;
+    var y;
+    // for 12 h formate
+
+    function tl_hour() {
+      const day = new Date();
+      var h = day.getHours();
+      var m = day.getMinutes();
+      var s = day.getSeconds();
+
+      var sesson = "AM";
+      if (h > 12) {
+        h = h - 12;
+        sesson = "PM";
+      }
+      if (h < 10) {
+        h = "0" + h;
+      }
+      if (m < 10) {
+        m = "0" + m;
+      }
+      if (s < 10) {
+        s = "0" + s;
+      }
+
+      document.getElementById("time").innerHTML =
+        h + ":" + m + ":" + s + " " + sesson;
+        // document.getElementById("time").style = "color :red";
+        // document.getElementById("twelve").style= "background-color:red";
+
+
+      x = setTimeout(tl_hour, 1000);
+      clearTimeout(y);
+    }
+    // for 24 h formate
+    function tf_hour() {
+      const day = new Date();
+      var h = day.getHours();
+      var m = day.getMinutes();
+      var s = day.getSeconds();
+      if (h > 12) {
+        h = h - 12;
+      }
+      if (h < 10) {
+        h = "0" + h;
+      }
+      if (m < 10) {
+        m = "0" + m;
+      }
+      if (s < 10) {
+        s = "0" + s;
+      }
+      document.getElementById("time").innerHTML = h + ":" + m + ":" + s;
+      // document.getElementById("time").style= "color:black";
+
+      y = setTimeout(tf_hour, 1000);
+      clearTimeout(x);
+    }
+    tl_hour();
+  </script>
+</body>
